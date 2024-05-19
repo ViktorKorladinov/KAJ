@@ -12,14 +12,19 @@ class ExpressionManipulator {
     }
 
     splitExpression(expression) {
-        const regex = /(\d+)\s*-\s*(\d+)/g;
-        const minusParenthesesRegex = /-\s*\(([^)]+)\)/g;
+        const minusToPlus = /(\d+)-(\d+)/g;
+        const minusToPlusPar = /\)-(\d+)/g;
+        const minusParenthesesRegex = /-\(([^)]+)\)/g;
+
         return expression
             .replace(minusParenthesesRegex, (match, p1) => { // -(4+5) => -1*(4+5)
                 return `-1*(${p1})`;
             })
-            .replace(regex, (match, p1, p2) => {             // 4-5 => 4+(-5)
+            .replace(minusToPlus, (match, p1, p2) => {             // 4-5 => 4+(-5)
                 return `${p1}+(-${p2})`;
+            })
+            .replace(minusToPlusPar, (match, p2) => {
+                return `)+(-${p2})`;
             })
             .match(/\-?\d+(\.\d+)?\b|[+\-*/^()]/g) || [];
     }
@@ -70,6 +75,7 @@ class ExpressionManipulator {
             var animated_initial = new StackAnimation(stack.slice().reverse(), "initial", sectionParent)
             var animated_result = new StackAnimation(res_stack, "result", sectionParent)
         }
+        console.log(stack);
         return new Promise((resolve, reject) => {
             // Once the to-be-animated stack has been initialized, we can start evaluating
             document.addEventListener('initialstackinitialized', async () => {
@@ -96,9 +102,9 @@ class ExpressionManipulator {
                 else {
                     const speedMode = parseInt(localStorage.getItem('speed'));
                     while (stack.length > 0) {
-                        await new Promise(resolve => setTimeout(resolve, speedMode/2))
+                        await new Promise(resolve => setTimeout(resolve, speedMode / 2))
                         await evaluationStep(reject);
-                        await new Promise(resolve => setTimeout(resolve, speedMode/2))
+                        await new Promise(resolve => setTimeout(resolve, speedMode / 2))
                     }
                     if (res_stack.length == 1)
                         resolve(res_stack.pop());
