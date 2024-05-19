@@ -40,8 +40,9 @@ class SettingsDialog {
     }
 
     // Correctly showcase current extras settings
-    const extras_settings_parent = dialog.querySelector("fieldset#extras");
-    for (const child of extras_settings_parent.children) {
+    const extras_settings_parent = dialog.querySelector("fieldset#extras")
+    const extras_settings = extras_settings_parent.querySelectorAll("input");
+    for (const child of extras_settings) {
       child.checked = localStorage.getItem(child.id) === '1'
     }
 
