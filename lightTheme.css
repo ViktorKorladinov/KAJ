@@ -1,0 +1,11 @@
+:root {
+    --bg-color: white;
+    --text-color: black;
+    --border-btn: gray;
+    --operand-btn-bg: rgb(65, 130, 150);
+    --other-btn-bg: #5e4caf;
+    --hover-btn-bg: #bf4e2be3;
+    --shadow-btn: rgba(0, 0, 0, 0.2);
+    --backdrop-bg: rgba(0, 0, 0, 0.75);
+    --dialog-bg: white;
+}

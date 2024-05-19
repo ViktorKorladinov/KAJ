@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Calculator Webapp</title>
+  <meta name="Calculator Webapp" content="An infix to postfix translator and evaluator">
+  <link rel="stylesheet" href="calculator.css">
+  <link rel="stylesheet" href="animation.css">
+  <link rel="stylesheet" href="options.css">
+  <link rel="stylesheet" id="themeHandler" href="lightTheme.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <dialog>
+    <div>
+      <nav>
+        <h1>Settings</h1>
+        <button aria-label="Close settings" class="opt-button" id="close"><i class="fas fa-close"></i> Close</button>
+      </nav>
+      <section>
+        <form>
+          <fieldset id="speed">
+            <legend>Animation Speed:</legend>
+            <label for="fastest"> <input type="radio" data-value="0" id="fastest" name="speed"> Fastest</label><br>
+            <label for="fast"><input type="radio" data-value="500" id="fast" name="speed"> Fast</label><br>
+            <label for="slow"><input type="radio" data-value="1000" id="slow" name="speed"> Slow</label><br>
+            <label for="manual"><input type="radio" id="manual" name="speed"> Manual</label><br>
+          </fieldset>
+          <fieldset id="extras">
+            <legend>Extras:</legend>
+            <label for="animation"><input type="checkbox" id="animation" name="extras"> Animation</label><br>
+            <label for="audio"><input type="checkbox" id="audio" name="extras"> Audio</label><br>
+          </fieldset>
+          <fieldset id="theme">
+            <legend>Theme:</legend>
+            <label for="light"><input type="radio" id="light" name="theme" checked> Light</label><br>
+            <label for="dark"><input type="radio" id="dark" name="theme"> Dark</label><br>
+          </fieldset>
+        </form>
+      </section>
+    </div>
+  </dialog>
+  <nav>
+    <button aria-label="Settings" class="opt-button" id="settings"><i class="fas fa-gear"></i> Settings</button>
+  </nav>
+  <article>
+    <section aria-label="Result"></section>
+    <section aria-label="Calculator" class="calc-form">
+      <form>
+        <div aria-label="Input container" class="inpt-container">
+          <input type="text" placeholder="Use keyboard or on-screen keys" id="expression-input" name="expression-input">
+          <button type="reset"><i class="fa-solid fa-eraser"></i> Clear</button>
+        </div>
+        <div aria-label="Button container" class="btn-container">
+          <div aria-label="Numbers container" class="num-container"></div>
+          <div aria-label="Operands container" class="ops-container"></div>
+        </div>
+      </form>
+    </section>
+  </article>
+  <script type="module" src="Calculator.js"></script>
+</body>
+
+</html>

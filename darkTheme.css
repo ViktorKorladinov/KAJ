@@ -1,0 +1,11 @@
+:root {
+    --bg-color: rgb(52, 52, 52);
+    --text-color: rgb(220, 220, 220);
+    --border-btn: white;
+    --operand-btn-bg: rgb(153, 153, 153);
+    --other-btn-bg: #636363;
+    --hover-btn-bg: #4f3737;
+    --shadow-btn: rgba(0, 0, 0, 0.2);
+    --backdrop-bg: rgba(255, 255, 255, 0.127);
+    --dialog-bg: rgba(255, 255, 255, 0.127);
+}

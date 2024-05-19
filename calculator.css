@@ -1,0 +1,160 @@
+  :root {
+    --content-width: 35%;
+  }
+
+  html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: var(--bg-color);
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  article {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  body section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: var(--content-width);
+  }
+
+  @media only screen and (max-width: 1500px) {
+    :root {
+      --content-width: 45%;
+    }
+  }
+
+  @media only screen and (max-width: 1000px) {
+    :root {
+      --content-width: 60%;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    :root {
+      --content-width: 80%;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    :root {
+      --content-width: 95%;
+    }
+  }
+
+  .inpt-container {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .inpt-container button {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid gray;
+    border-radius: 1em;
+    font-size: 0.75em;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: none;
+  }
+
+  .inpt-container button:hover {
+    cursor: pointer;
+    background-color: var(--hover-btn-bg);
+    color: white;
+  }
+
+  #expression-input {
+    padding: 25px;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: right;
+    background-color: transparent;
+    border: 1px solid gray;
+    border-radius: 1em;
+    color: var(--text-color);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    z-index: 1;
+  }
+
+  #stepper {
+    background-color: transparent;
+    border: 1px solid var(--border-btn);
+    color: var(--text-color);
+    border-radius: 0.5em;
+    padding: 5px;
+    margin: 10px;
+  }
+
+  #stepper:hover {
+    cursor: pointer;
+  }
+
+  .btn-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+
+  .num-container {
+    grid-column: span 3;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .ops-container {
+    display: grid;
+    grid-column: span 2;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .btn-container .operand-btn {
+    background-color: var(--operand-btn-bg);
+    font-size: large;
+  }
+
+  .btn-container button {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    height: 80px;
+    text-align: center;
+    background-color: var(--other-btn-bg);
+    color: white;
+    border: none;
+    border-radius: 1em;
+    cursor: pointer;
+  }
+
+  .btn-container button:hover {
+    background-color: var(--hover-btn-bg);
+    -webkit-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
+  }
