@@ -3,6 +3,12 @@ import SettingsDialog from "./SettingsDialog.js";
 
 class Calculator {
 
+    constructor() {
+        addEventListener("popstate", (event) => {
+            document.querySelector('#expression-input').value = history.state ? history.state.expression : ''
+        });
+    }
+
     // Create the calculator buttons and add their functionality
     loadButtons() {
         this.input = document.querySelector('#expression-input');
@@ -78,6 +84,7 @@ class Calculator {
             .evaluate(rev_stack, localStorage.getItem('animation') === '1')
             .then(res => {
                 document.querySelector('#expression-input').value = res;
+                window.history.pushState({ expression }, '', `calculator.html?${expression}`)
                 container.textContent = '';
             })
             .catch(err => alert(err + " " + postf_str))
